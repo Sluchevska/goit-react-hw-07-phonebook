@@ -8,7 +8,7 @@ import {
 import { contactsActions } from '.';
 
 const items = createReducer([], {
-  [fetchContacts.fulfilled]: (_, action) => action.payload,
+  [fetchContacts.fulfilled]: (_state, action) => action.payload,
   [addContact.fulfilled]: (state, { payload }) => [payload, ...state],
   [deleteContact.fulfilled]: (state, { payload }) =>
     state.filter(contact => contact.id !== payload),
@@ -27,16 +27,16 @@ const isLoading = createReducer(false, {
 });
 
 const error = createReducer(null, {
-  [fetchContacts.rejected]: (_, action) => action.payload,
+  [fetchContacts.rejected]: (_state, action) => action.payload,
   [fetchContacts.pending]: null,
-  [addContact.rejected]: (_, action) => action.payload,
+  [addContact.rejected]: (_state, action) => action.payload,
   [addContact.pending]: null,
-  [deleteContact.rejected]: (_, action) => action.payload,
+  [deleteContact.rejected]: (_state, action) => action.payload,
   [deleteContact.pending]: null,
 });
 
 const filter = createReducer('', {
-  [contactsActions.changeFilter]: (_, { payload }) => payload,
+  [contactsActions.changeFilter]: (_state, { payload }) => payload,
 });
 
 export default combineReducers({
