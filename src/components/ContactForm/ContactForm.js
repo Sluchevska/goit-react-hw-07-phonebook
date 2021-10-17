@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { LabelInput, Input, Button } from './ContactForm.styled';
 import { contactsOperations } from 'redux/contacts';
+import { LabelInput, Input, Button } from './ContactForm.styled';
 
 export default function ContactForm() {
-  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const dispatch = useDispatch();
 
   const handleChange = e => {
     switch (e.target.name) {
